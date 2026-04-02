@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// In dev, use proxy ('' = same origin). In prod, use full API URL.
-const API_BASE_URL = import.meta.env.VITE_API_URL ?? (import.meta.env.DEV ? '/api' : 'http://localhost:5000/api');
+// Default to Vite dev proxy (`/api`). For deployments, set VITE_API_URL to a full URL.
+const API_BASE_URL = import.meta.env.VITE_API_URL || '/api';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
